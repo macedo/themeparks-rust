@@ -8,7 +8,13 @@ pub struct Destination {
     id: String,
     name: String,
     slug: String,
+    parks: Vec<Park>,
+}
 
+#[derive(Debug, Deserialize, Serialize)]
+pub struct Park {
+    id: String,
+    name: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
