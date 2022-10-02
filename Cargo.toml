@@ -8,3 +8,15 @@ authors = ["Rafael Macedo <macedo.rafaelfernandes@gmail.com"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+# A generic serialization/deserialization framework
+serde = { version = "1.0.145", features = ["derive"] }
+
+# A JSON serialization file format
+serde_json = { version = "1.0.85", features = ["raw_value"] }
+
+# derive(Error)
+thiserror = { version = "1.0.37" }
+
+#Simple, safe HTTP client
+ureq = { version = "2.5.0", features = ["json", "charset"] }
