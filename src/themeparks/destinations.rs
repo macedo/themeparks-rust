@@ -5,10 +5,10 @@ use crate::themeparks::{Client, Endpoint, ThemeParksResponse};
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Destination {
-    id: String,
-    name: String,
-    slug: String,
-    parks: Vec<Park>,
+    pub id: String,
+    pub name: String,
+    pub slug: String,
+    pub parks: Vec<Park>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -19,7 +19,7 @@ pub struct Park {
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct DestinationsResponse {
-    destinations: Vec<Destination>
+    pub destinations: Vec<Destination>
 }
 
 struct DestinationsEndpoint;

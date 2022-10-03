@@ -1,5 +1,6 @@
 use crate::errors::ThemeParksError;
 use crate::themeparks::destinations::Destinations;
+use crate::themeparks::entity::Entity;
 
 use serde;
 use serde::de::DeserializeOwned;
@@ -7,6 +8,7 @@ use serde_json::Value;
 use ureq::{Error, Request, Response};
 
 pub mod destinations;
+pub mod entity;
 
 const VERSION: &str = "0.1.0";
 const DEFAULT_USER_AGENT: &str = "themepark-rust/";
@@ -47,6 +49,10 @@ impl Client {
 
     pub fn destinations(&self) -> Destinations {
         Destinations { client: self }
+    }
+
+    pub fn entity(&self) -> Entity {
+        Entity { client: self }
     }
 
     pub fn set_base_url(&mut self, url: &str) {
