@@ -116,7 +116,7 @@ impl Client {
 
         let body = serde_json::from_value(json)
             .map_err(|e| ThemeParksError::Deserialization(e.to_string()))?;
-            
+
         Ok(ThemeParksResponse { status, data, body })
     }
 

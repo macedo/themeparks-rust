@@ -6,7 +6,7 @@ use crate::themeparks::{Client, Endpoint, ThemeParksResponse};
 #[derive(Debug, Deserialize, Serialize)]
 pub struct EntityLiveData {
     pub id: String,
-    
+
     pub name: String,
 
     #[serde(rename = "entityType")]
@@ -29,7 +29,7 @@ pub struct LiveShowTime {
     pub start_time: String,
 
     #[serde(rename = "endTime")]
-    pub end_time: String
+    pub end_time: String,
 }
 
 fn default_showtimes() -> Vec<LiveShowTime> {
@@ -59,9 +59,11 @@ pub struct Entity<'a> {
 }
 
 impl Entity<'_> {
-    pub fn get_live_data(&self, entity_id: &str) -> Result<ThemeParksResponse<EntityLiveDataResponse>, ThemeParksError> {
+    pub fn get_live_data(
+        &self,
+        entity_id: &str,
+    ) -> Result<ThemeParksResponse<EntityLiveDataResponse>, ThemeParksError> {
         let path = format!("/entity/{}/live", entity_id);
         self.client.get::<EntityLiveDataEndpoint>(&*path)
     }
 }
-

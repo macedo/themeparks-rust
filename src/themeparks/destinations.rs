@@ -19,7 +19,7 @@ pub struct Park {
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct DestinationsResponse {
-    pub destinations: Vec<Destination>
+    pub destinations: Vec<Destination>,
 }
 
 struct DestinationsEndpoint;
@@ -33,7 +33,9 @@ pub struct Destinations<'a> {
 }
 
 impl Destinations<'_> {
-    pub fn list_destinations(&self) -> Result<ThemeParksResponse<DestinationsResponse>, ThemeParksError> {
+    pub fn list_destinations(
+        &self,
+    ) -> Result<ThemeParksResponse<DestinationsResponse>, ThemeParksError> {
         self.client.get::<DestinationsEndpoint>("/destinations")
     }
 }
