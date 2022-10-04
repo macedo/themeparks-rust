@@ -1,4 +1,6 @@
 use serde::{Deserialize, Serialize};
+use serde_json::Value;
+use std::collections::HashMap;
 
 use crate::errors::ThemeParksError;
 use crate::themeparks::{Client, Endpoint, ThemeParksResponse};
@@ -17,8 +19,15 @@ pub struct EntityLiveData {
     #[serde(rename = "lastUpdated")]
     pub last_updated: String,
 
+    #[serde(default = "default_queue")]
+    queue: HashMap<String, Value>,
+
     #[serde(default = "default_showtimes ")]
     pub showtimes: Vec<LiveShowTime>,
+}
+
+fn default_queue() -> HashMap<String, Value> {
+    HashMap::new()
 }
 
 #[derive(Debug, Deserialize, Serialize)]
