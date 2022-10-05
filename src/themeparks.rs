@@ -10,7 +10,7 @@ use ureq::{Error, Request, Response};
 pub mod destinations;
 pub mod entity;
 
-const VERSION: &str = "0.1.0";
+const VERSION: &str = "0.1.1";
 const DEFAULT_USER_AGENT: &str = "themepark-rust/";
 
 const API_VERSION: &str = "v1";
